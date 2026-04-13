@@ -1,0 +1,68 @@
+public class SchoolManagementSystem {
+
+    // Base class
+    static class Person {
+        String name;
+        int age;
+
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        void showRole() {
+            System.out.println("I am a Person.");
+        }
+    }
+
+    // Teacher subclass
+    static class Teacher extends Person {
+        String subject;
+        double salary;
+
+        Teacher(String name, int age, String subject, double salary) {
+            super(name, age);
+            this.subject = subject;
+            this.salary = salary;
+        }
+
+        @Override
+        void showRole() {
+            System.out.println("I am a Teacher. I teach students.");
+            System.out.println("Name: " + name + " | Age: " + age + " | Subject: " + subject + " | Salary: " + salary);
+        }
+    }
+
+    // Student subclass
+    static class Student extends Person {
+        int rollNumber;
+        String course;
+
+        Student(String name, int age, int rollNumber, String course) {
+            super(name, age);
+            this.rollNumber = rollNumber;
+            this.course = course;
+        }
+
+        @Override
+        void showRole() {
+            System.out.println("I am a Student. I study subjects.");
+            System.out.println("Name: " + name + " | Age: " + age + " | Roll No: " + rollNumber + " | Course: " + course);
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        Person[] people = new Person[2];
+        people[0] = new Teacher("Mr. Sharma", 35, "Mathematics", 55000);
+        people[1] = new Student("Rahul", 18, 101, "Computer Science");
+
+        System.out.println("=== School Administration Management System ===\n");
+
+        for (Person p : people) {
+            p.showRole();
+            System.out.println();
+        }
+    }
+}
